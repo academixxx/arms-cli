@@ -1,4 +1,4 @@
-# <Project Title>
+# Animal rescue Management System | CLI
 
 **Course:** CS 214 / Object-Oriented Programming>  
 **Instructor:** Leomir Paz 
