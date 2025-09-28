@@ -1,8 +1,8 @@
 # Animal rescue Management System | CLI
 
-- **Course:** CS 214 / Object-Oriented Programming
-- **Instructor:** Leomir Paz 
-- **Semester:**  1st Semester 2025-2026
+**Course:** CS 214 / Object-Oriented Programming>  
+**Instructor:** Leomir Paz 
+**Semester:**  1st Semester 2025-2026
 
 ## Description
 Animal Rescue Management System 
@@ -24,8 +24,7 @@ an animal welfare organization.
 ## Technologies Used
 - Java
 - Gradle (for build & dependencies)
-
-
+- 
 
 ## Running the Project
 Clone and run with Gradle:
