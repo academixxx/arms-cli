@@ -34,4 +34,11 @@ public class AnimalManager {
 
         JOptionPane.showMessageDialog(null, sb.toString());
     }
+
+    /**
+     * Returns a copy of the current animals list for reporting/scheduling.
+     */
+    public List<Animal> getAnimals() {
+        return new ArrayList<>(animals);
+    }
 }
