@@ -21,6 +21,19 @@ public class AnimalManager {
         JOptionPane.showMessageDialog(null, "Animal registered:\n" + animal);
     }
 
+    public Animal createAnimal(String type, String condition, String status) {
+        Animal animal = new Animal(nextId++, type, condition, status);
+        animals.add(animal);
+        return animal;
+    }
+
+    public Animal findById(int id) {
+        for (Animal animal : animals) {
+            if (animal.id() == id) return animal;
+        }
+        return null;
+    }
+
     public void listAnimals() {
         if (animals.isEmpty()) {
             JOptionPane.showMessageDialog(null, "No animals registered yet.");

@@ -4,7 +4,7 @@ import javax.swing.*;
 
 public class Main {
     private static final AnimalManager animalManager = new AnimalManager();
-    private static final RescueManager rescueManager = new RescueManager();
+    private static final RescueManager rescueManager = new RescueManager(animalManager);
     private static final MedicalRecordManager medicalRecordManager = new MedicalRecordManager();
     private static final AdoptionManager adoptionManager = new AdoptionManager();
     private static final VolunteerManager volunteerManager = new VolunteerManager();
