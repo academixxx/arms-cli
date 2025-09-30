@@ -24,8 +24,8 @@ public class ReportService {
         Map<String, Integer> byStatus = new HashMap<>();
         Map<String, Integer> byType = new HashMap<>();
         for (Animal a : animals) {
-            byStatus.merge(a.getStatus(), 1, Integer::sum);
-            byType.merge(a.getType(), 1, Integer::sum);
+            byStatus.merge(a.status(), 1, Integer::sum);
+            byType.merge(a.type(), 1, Integer::sum);
         }
         StringBuilder sb = new StringBuilder("Animal Population Report\n\nBy Status:\n");
         byStatus.forEach((k, v) -> sb.append(" - ").append(k).append(": ").append(v).append('\n'));
@@ -43,7 +43,7 @@ public class ReportService {
         if (animals == null) return schedules;
         int id = 1;
         for (Animal a : animals) {
-            FeedingSchedule fs = new FeedingSchedule(id++, a.getId());
+            FeedingSchedule fs = new FeedingSchedule(id++, a.id());
             fs.getFeedingTimes().add(LocalTime.of(8, 0));
             fs.getFeedingTimes().add(LocalTime.of(18, 0));
             fs.setNotes("Auto-generated schedule");
