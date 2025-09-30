@@ -1,11 +1,11 @@
 # Animal rescue Management System | CLI
 
-**Course:** CS 214 / Object-Oriented Programming>  
-**Instructor:** Leomir Paz 
-**Semester:**  1st Semester 2025-2026
+- **Course:** CS 214 / Object-Oriented Programming
+- **Semester:**  1st Semester 2025-2026
 
 ## Description
-Animal Rescue Management System 
+
+Animal Rescue Management System
 
 This program organizes the process of rescuing, sheltering, and adopting
 animals. It registers animals with their medical needs, assigns foster homes,
@@ -22,18 +22,23 @@ an animal welfare organization.
 - Report animal population statistics.
 
 ## Technologies Used
+
 - Java
 - Gradle (for build & dependencies)
-- 
+-
 
 ## Running the Project
+
 Clone and run with Gradle:
+
 ```bash
 git clone https://github.com/academixxx/arms-cli.git
 cd arms-cli
 ./gradlew run
 ```
+
 or with Java only:
+
 ```bash
 java Main.java
 ```
