@@ -65,7 +65,10 @@ public class RescueManager {
         RescueEvent event = new RescueEvent(nextId++, animalId, location, rescuer, java.time.LocalDate.now());
         events.add(event);
         // Display the newly added event
-        JOptionPane.showMessageDialog(null, "Rescue recorded:\n" + event);
+        JOptionPane.showMessageDialog(null,
+                "Location: " + location + "\nRescuer: " + rescuer + "\nDate: " + event.date(),
+                "Rescue Recorded", JOptionPane.INFORMATION_MESSAGE
+        );
     }
 
     /**
