@@ -12,13 +12,14 @@ public class AnimalManager {
 
     public void addAnimal() {
         String type = JOptionPane.showInputDialog("Enter animal type:");
+        if (type == null || type.isBlank()) return;
         String condition = JOptionPane.showInputDialog("Enter condition:");
+        if (condition == null || condition.isBlank()) return;
         String status = JOptionPane.showInputDialog("Enter status (e.g., Fostered, Available):");
-
+        if (status == null || status.isBlank()) return;
         Animal animal = new Animal(nextId++, type, condition, status);
         animals.add(animal);
-
-        JOptionPane.showMessageDialog(null, "Animal registered:\n" + animal);
+        JOptionPane.showMessageDialog(null, "Animal registered: #" + animal.id() + " - " + type + " | " + condition + " | " + status);
     }
 
     public Animal createAnimal(String type, String condition, String status) {
@@ -40,12 +41,15 @@ public class AnimalManager {
             return;
         }
 
-        StringBuilder sb = new StringBuilder("Animals:\n");
+        StringBuilder sb = new StringBuilder();
         for (Animal animal : animals) {
-            sb.append(animal).append("\n");
+            sb.append("#").append(animal.id()).append(" - ")
+              .append(animal.type()).append(" | ")
+              .append(animal.condition()).append(" | ")
+              .append(animal.status()).append("\n");
         }
 
-        JOptionPane.showMessageDialog(null, sb.toString());
+        JOptionPane.showMessageDialog(null, sb.toString(), "Animals", JOptionPane.INFORMATION_MESSAGE);
     }
 
     /**

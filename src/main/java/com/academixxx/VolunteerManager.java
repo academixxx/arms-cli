@@ -16,11 +16,12 @@ public class VolunteerManager {
 
     public void addVolunteer() {
         String name = JOptionPane.showInputDialog("Enter volunteer name:");
+        if (name == null || name.isBlank()) return;
         String contact = JOptionPane.showInputDialog("Enter contact info:");
-        if (name == null || contact == null) return;
+        if (contact == null || contact.isBlank()) return;
         Volunteer v = new Volunteer(nextId++, name, contact);
         volunteers.add(v);
-        JOptionPane.showMessageDialog(null, "Volunteer added:\n" + v);
+        JOptionPane.showMessageDialog(null, "Volunteer added: #" + v.id() + " - " + v.name() + " (" + v.contact() + ")");
     }
 
     public void listVolunteers() {
@@ -30,7 +31,7 @@ public class VolunteerManager {
         }
         StringBuilder sb = new StringBuilder("Volunteers:\n");
         for (Volunteer v : volunteers) {
-            sb.append(v).append('\n');
+            sb.append("#").append(v.id()).append(" - ").append(v.name()).append(" ( ").append(v.contact()).append(" )\n");
         }
         JOptionPane.showMessageDialog(null, sb.toString());
     }

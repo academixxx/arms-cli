@@ -5,8 +5,8 @@ import javax.swing.*;
 public class Main {
     private static final AnimalManager animalManager = new AnimalManager();
     private static final RescueManager rescueManager = new RescueManager(animalManager);
-    private static final MedicalRecordManager medicalRecordManager = new MedicalRecordManager();
-    private static final AdoptionManager adoptionManager = new AdoptionManager();
+    private static final MedicalRecordManager medicalRecordManager = new MedicalRecordManager(animalManager);
+    private static final AdoptionManager adoptionManager = new AdoptionManager(animalManager);
     private static final VolunteerManager volunteerManager = new VolunteerManager();
     private static final ReportService reportService = new ReportService();
 

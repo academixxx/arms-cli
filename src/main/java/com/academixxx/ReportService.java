@@ -41,9 +41,8 @@ public class ReportService {
     public List<FeedingSchedule> generateFeedingSchedules(List<Animal> animals) {
         List<FeedingSchedule> schedules = new ArrayList<>();
         if (animals == null) return schedules;
-        int id = 1;
         for (Animal a : animals) {
-            FeedingSchedule fs = new FeedingSchedule(id++, a.id());
+            FeedingSchedule fs = new FeedingSchedule(a.id(), a.id());
             fs.getFeedingTimes().add(LocalTime.of(8, 0));
             fs.getFeedingTimes().add(LocalTime.of(18, 0));
             fs.setNotes("Auto-generated schedule");
@@ -59,7 +58,11 @@ public class ReportService {
         }
         StringBuilder sb = new StringBuilder("Feeding Schedules:\n");
         for (FeedingSchedule fs : schedules) {
-            sb.append(fs).append('\n');
+            sb.append("Schedule #").append(fs.getId())
+              .append(" for Animal #").append(fs.getAnimalId())
+              .append(" - Times: ").append(fs.getFeedingTimes())
+              .append((fs.getNotes() == null || fs.getNotes().isBlank()) ? "" : (" | Notes: " + fs.getNotes()))
+              .append('\n');
         }
         JOptionPane.showMessageDialog(null, sb.toString());
     }

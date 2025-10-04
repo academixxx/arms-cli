@@ -33,14 +33,14 @@ public class RescueManager {
             // Animal is new
             String type = JOptionPane.showInputDialog("Enter animal type:");
             String condition = JOptionPane.showInputDialog("Enter condition:");
-            if (type == null || condition == null) return;
+            if (type == null || type.isBlank() || condition == null || condition.isBlank()) return;
             // rescued status for new rescues
             Animal animal = animalManager.createAnimal(type, condition, "Rescued");
             animalId = animal.id();
         } else if (mode.equalsIgnoreCase("n")) {
             // Animal exists
             String animalIdStr = JOptionPane.showInputDialog("Enter existing animal ID:");
-            if (animalIdStr == null) return;
+            if (animalIdStr == null || animalIdStr.isBlank()) return;
             try {
                 int id = Integer.parseInt(animalIdStr);
                 if (animalManager.findById(id) == null) {
@@ -58,15 +58,16 @@ public class RescueManager {
         }
 
         String location = JOptionPane.showInputDialog("Enter location:");
+        if (location == null || location.isBlank()) return;
         String rescuer = JOptionPane.showInputDialog("Enter rescuer name:");
-        if (location == null || rescuer == null) return;
+        if (rescuer == null || rescuer.isBlank()) return;
 
         // Add the event to the list
         RescueEvent event = new RescueEvent(nextId++, animalId, location, rescuer, java.time.LocalDate.now());
         events.add(event);
         // Display the newly added event
         JOptionPane.showMessageDialog(null,
-                "Location: " + location + "\nRescuer: " + rescuer + "\nDate: " + event.date(),
+                "Rescue recorded for Animal #" + animalId + "\nLocation: " + location + "\nRescuer: " + rescuer + "\nDate: " + event.date(),
                 "Rescue Recorded", JOptionPane.INFORMATION_MESSAGE
         );
     }
@@ -81,7 +82,12 @@ public class RescueManager {
         }
         StringBuilder sb = new StringBuilder("Rescue Events:\n");
         for (RescueEvent e : events) {
-            sb.append(e).append('\n');
+            sb.append("#").append(e.id())
+              .append(" Animal #").append(e.animalId())
+              .append(" - ").append(e.location())
+              .append(" | Rescuer: ").append(e.rescuer())
+              .append(" | Date: ").append(e.date())
+              .append('\n');
         }
         JOptionPane.showMessageDialog(null, sb.toString());
     }
